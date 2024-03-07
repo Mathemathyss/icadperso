@@ -8,12 +8,12 @@ package icad.view;
  *
  * @author m.votte
  */
-public class DelUserFrame extends javax.swing.JFrame {
+public class showUserFrame extends javax.swing.JFrame {
 
     /**
-     * Creates new form DelUserFrame
+     * Creates new form showUserFrame
      */
-    public DelUserFrame() {
+    public showUserFrame() {
         initComponents();
     }
 
@@ -26,36 +26,32 @@ public class DelUserFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
-        jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         jTextField8 = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         btnAnnulerAddUser = new javax.swing.JButton();
-        btnValiderAddUser = new javax.swing.JButton();
+        jTextField4 = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setText("Créer un utilisateur");
-
-        jLabel2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel2.setText("Nom :");
-
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel3.setText("Prénom :");
+
+        jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel9.setText("Téléphone :");
 
         jLabel4.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel4.setText("Email :");
@@ -63,36 +59,27 @@ public class DelUserFrame extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel5.setText("Ville :");
 
+        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        jLabel1.setText("Information utilisateur");
+
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel6.setText("Adresse :");
 
         jLabel7.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel7.setText("Code Postal :");
 
-        jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel8.setText("Mot de passe :");
-
-        jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        jLabel9.setText("Téléphone :");
+        jLabel2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel2.setText("Nom :");
 
         btnAnnulerAddUser.setText("Annuler");
 
-        btnValiderAddUser.setText("Valider");
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        jLabel8.setText("Mot de passe :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(249, 249, 249)
-                .addComponent(btnAnnulerAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(59, 59, 59)
-                .addComponent(btnValiderAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(296, 296, 296))
             .addGroup(layout.createSequentialGroup()
                 .addGap(182, 182, 182)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -113,21 +100,27 @@ public class DelUserFrame extends javax.swing.JFrame {
                             .addComponent(jLabel3)
                             .addComponent(jLabel2))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3)
-                            .addComponent(jTextField4)
-                            .addComponent(jTextField5)
-                            .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextField1)
+                                .addComponent(jTextField2)
+                                .addComponent(jTextField3)
+                                .addComponent(jTextField4)
+                                .addComponent(jTextField5)
+                                .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(185, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAnnulerAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(294, 294, 294))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 21, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -159,11 +152,9 @@ public class DelUserFrame extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
                     .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAnnulerAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnValiderAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102))
+                .addGap(42, 42, 42)
+                .addComponent(btnAnnulerAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
         );
 
         pack();
@@ -186,27 +177,26 @@ public class DelUserFrame extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DelUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(showUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DelUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(showUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DelUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(showUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DelUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(showUserFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new DelUserFrame().setVisible(true);
+                new showUserFrame().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnnulerAddUser;
-    private javax.swing.JButton btnValiderAddUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
