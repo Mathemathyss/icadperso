@@ -60,7 +60,7 @@ public class showUserFrame extends javax.swing.JFrame {
         jLabel5.setText("Ville :");
 
         jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setText("Information utilisateur");
+        jLabel1.setText("Information Utilisateur");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel6.setText("Adresse :");
