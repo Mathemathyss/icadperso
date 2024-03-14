@@ -1,4 +1,5 @@
 
+import icad.model.MySQLConnection;
 import java.sql.Connection;
 
 /*
@@ -14,7 +15,16 @@ public class UserDAO {
     private Connection connexion;
     
    
-public UserDAO () throws Exception {
-    this.connexion = MySQLConnexion.getConnexion();
+public UserDAO() throws Exception {
+    this.connexion = MySQLConnection.getConnexion();
 }    
+
+
+//public User create (User unuser){
+//    
+//}
+//
+//public User get(Interger id_utilisateur) {
+//    
+//}
 }
