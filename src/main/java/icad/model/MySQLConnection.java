@@ -11,7 +11,7 @@ import java.util.logging.Level;
 
 /**
  *
- * @author j.loirot
+ * @author p.bertrand
  */
 public class MySQLConnection {
     
