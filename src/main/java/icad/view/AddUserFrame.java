@@ -4,6 +4,7 @@
  */
 package icad.view;
 
+import icad.model.Utilisateur;
 import javax.swing.JTextField;
 
 /**
@@ -23,8 +24,9 @@ public class AddUserFrame extends javax.swing.JFrame {
         return tfAdresseAddUser.getText();
     }
 
-    public String getCPAddUser() {
-        return tfCPAddUser.getText();
+    public int getCPAddUser() {
+        int codePostal = Integer.parseInt(tfCPAddUser.getText());
+        return codePostal;        
     }
 
     public String getEmailAddUser() {
@@ -47,8 +49,9 @@ public class AddUserFrame extends javax.swing.JFrame {
         return tfProfessionAddUser.getText();
     }
 
-    public String getTelAddUser() {
-        return tfTelAddUser.getText();
+    public int getTelAddUser() {
+        int telephone = Integer.parseInt(tfTelAddUser.getText());
+        return telephone;
     }
 
     public String getVilleAddUser() {
@@ -234,7 +237,21 @@ public class AddUserFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnValiderAddUserMouseClicked
 
     private void btnValiderAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderAddUserActionPerformed
-        String nomAddUser = this.getNomAddUser();
+        try {            
+            String nomAddUser = this.getNomAddUser();
+            String prenomAddUser = this.getPrenomAddUser();
+            String adresseAddUser = this.getAdresseAddUser();
+            int telephoneAddUser = this.getTelAddUser();
+            String villeAddUser = this.getVilleAddUser();
+            String professionAddUser = this.getProfessionAddUser();
+            String passwordAddUser = this.getMDPAddUser();
+            int codePostalAddUser = this.getCPAddUser();
+            String emailAddUser = this.getEmailAddUser();
+
+            UtilisateurDao userDao = new UtilisateurDAO();
+            Utilisateur nouvelUtilisateur = new Utilisateur(emailAddUser, telephoneAddUser, nomAddUser, prenomAddUser, villeAddUser, adresseAddUser, codePostalAddUser, professionAddUser, passwordAddUser);
+        } catch (Exception e) {
+        }
     }//GEN-LAST:event_btnValiderAddUserActionPerformed
 
     /**
