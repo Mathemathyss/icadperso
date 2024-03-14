@@ -9,10 +9,7 @@ import java.sql.DriverManager;
 import java.util.logging.Logger;
 import java.util.logging.Level;
 
-/**
- *
- * @author p.bertrand
- */
+
 public class MySQLConnection {
     
     private static final String url = "jdbc:mysql://localhost:3306/icad";
