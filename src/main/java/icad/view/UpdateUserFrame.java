@@ -4,6 +4,8 @@
  */
 package icad.view;
 
+import icad.DAO.UtilisateurDAO;
+import icad.model.Utilisateur;
 import javax.swing.JTextField;
 
 /**
@@ -19,40 +21,42 @@ public class UpdateUserFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    public JTextField getAdresseUpdUser() {
-        return tfAdresseUpdUser;
+    public String getAdresseUpdUser() {
+        return tfAdresseUpdUser.getText();
     }
 
-    public JTextField getCPUpdUser() {
-        return tfCPUpdUser;
+    public int getCPUpdUser() {
+        int codePostal = Integer.parseInt(tfCPUpdUser.getText());
+        return codePostal;
     }
 
-    public JTextField getEmailUpdUser() {
-        return tfEmailUpdUser;
+    public String getEmailUpdUser() {
+        return tfEmailUpdUser.getText();
     }
 
-    public JTextField getMDPUpdUser() {
-        return tfMDPUpdUser;
+    public String getMDPUpdUser() {
+        return tfMDPUpdUser.getText();
     }
 
-    public JTextField getNomUpdUser() {
-        return tfNomUpdUser;
+    public String getNomUpdUser() {
+        return tfNomUpdUser.getText();
     }
 
-    public JTextField getPrenomUpdUser() {
-        return tfPrenomUpdUser;
+    public String getPrenomUpdUser() {
+        return tfPrenomUpdUser.getText();
     }
 
-    public JTextField getProfessionUpdUser() {
-        return tfProfessionUpdUser;
+    public String getProfessionUpdUser() {
+        return tfProfessionUpdUser.getText();
     }
 
-    public JTextField getTelUpdUser() {
-        return tfTelUpdUser;
+    public int getTelUpdUser() {
+        int telephone = Integer.parseInt(tfTelUpdUser.getText());
+        return telephone;
     }
 
-    public JTextField getVilleUpdUser() {
-        return tfVilleUpdUser;
+    public String getVilleUpdUser() {
+        return tfVilleUpdUser.getText();
     }
 
     /**
@@ -92,6 +96,11 @@ public class UpdateUserFrame extends javax.swing.JFrame {
         jLabel3.setText("Prénom :");
 
         btnValiderAddUser.setText("Valider");
+        btnValiderAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValiderAddUserActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel9.setText("Téléphone :");
@@ -219,6 +228,33 @@ public class UpdateUserFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnValiderAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderAddUserActionPerformed
+        // TODO add your handling code here:
+        
+         try {
+            // On récupère les informations saisi par l'utilisateur
+            String nomUpdUser = this.getNomUpdUser();
+            String prenomAddUser = this.getPrenomUpdUser();
+            String adresseAddUser = this.getAdresseUpdUser();
+            int telephoneUpdUser = this.getTelUpdUser();
+            String villeAddUser = this.getVilleUpdUser();
+            String professionAddUser = this.getProfessionUpdUser();
+            String passwordAddUser = this.getMDPUpdUser();
+            int codePostalAddUser = this.getCPUpdUser();
+            String emailAddUser = this.getEmailUpdUser();
+            
+
+            // On demande au modèle d'insérer ce nom en base
+            UtilisateurDAO userDao = new UtilisateurDAO();
+            Utilisateur nouvelUtilisateur = new Utilisateur(emailAddUser,telephoneUpdUser,nomUpdUser,prenomAddUser,villeAddUser,adresseAddUser,codePostalAddUser,professionAddUser,passwordAddUser);
+            
+            
+            // On met a jour l'interface
+            
+        }catch (Exception e){
+        }
+    }//GEN-LAST:event_btnValiderAddUserActionPerformed
 
     /**
      * @param args the command line arguments
