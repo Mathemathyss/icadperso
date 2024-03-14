@@ -28,17 +28,17 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnAddUser = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabListUser = new javax.swing.JTable();
         btnModifUser = new javax.swing.JButton();
         btnDelUser = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        labListUser = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Page Principale");
 
         btnAddUser.setText("Ajouter un Utilisateur");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabListUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -46,10 +46,10 @@ public class MainFrame extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Nom", "Prenom", "Utilisateur", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabListUser);
 
         btnModifUser.setText("Modifier un Utilisateur");
         btnModifUser.addActionListener(new java.awt.event.ActionListener() {
@@ -60,9 +60,9 @@ public class MainFrame extends javax.swing.JFrame {
 
         btnDelUser.setText("Supprimer un Utilisateur");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Liste des Utilisateurs");
+        labListUser.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
+        labListUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        labListUser.setText("Liste des Utilisateurs");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -82,14 +82,14 @@ public class MainFrame extends javax.swing.JFrame {
                                 .addComponent(btnDelUser, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(66, 66, 66))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(labListUser)
                         .addGap(225, 225, 225))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(56, 56, 56)
-                .addComponent(jLabel1)
+                .addComponent(labListUser)
                 .addGap(38, 38, 38)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -146,8 +146,8 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JButton btnAddUser;
     private javax.swing.JButton btnDelUser;
     private javax.swing.JButton btnModifUser;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JLabel labListUser;
+    private javax.swing.JTable tabListUser;
     // End of variables declaration//GEN-END:variables
 }
