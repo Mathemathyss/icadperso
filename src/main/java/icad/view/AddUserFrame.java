@@ -4,13 +4,11 @@
  */
 package icad.view;
 
+import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
 import javax.swing.JTextField;
 
-/**
- *
- * @author m.votte
- */
+
 public class AddUserFrame extends javax.swing.JFrame {
 
     /**
@@ -248,8 +246,9 @@ public class AddUserFrame extends javax.swing.JFrame {
             int codePostalAddUser = this.getCPAddUser();
             String emailAddUser = this.getEmailAddUser();
 
-            UtilisateurDao userDao = new UtilisateurDAO();
+            UtilisateurDAO userDao = new UtilisateurDAO();
             Utilisateur nouvelUtilisateur = new Utilisateur(emailAddUser, telephoneAddUser, nomAddUser, prenomAddUser, villeAddUser, adresseAddUser, codePostalAddUser, professionAddUser, passwordAddUser);
+            userDao.create(nouvelUtilisateur);
         } catch (Exception e) {
         }
     }//GEN-LAST:event_btnValiderAddUserActionPerformed

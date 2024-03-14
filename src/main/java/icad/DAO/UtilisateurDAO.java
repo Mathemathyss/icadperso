@@ -1,6 +1,7 @@
 package icad.DAO;
 
 import icad.model.MySQLConnection;
+import icad.model.Utilisateur;
 import java.sql.Connection;
 
 /*
@@ -19,9 +20,9 @@ public class UtilisateurDAO {
         this.connexion = MySQLConnection.getConnexion();
     }
 
-//public Utilisateur create (Utilisateur utilisateur){
-//        return utilisateur;
-//}
+public Utilisateur create (Utilisateur utilisateur){
+        return utilisateur;
+}
 //
 //public Utilisateur get(Interger ID_UTILISATEUR) {
 //    
