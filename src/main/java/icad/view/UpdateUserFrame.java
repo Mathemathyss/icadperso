@@ -247,8 +247,8 @@ public class UpdateUserFrame extends javax.swing.JFrame {
 
             // On demande au modèle d'insérer ce nom en base
             UtilisateurDAO userDao = new UtilisateurDAO();
-            Utilisateur nouvelUtilisateur = new Utilisateur(emailAddUser,telephoneUpdUser,nomUpdUser,prenomAddUser,villeAddUser,adresseAddUser,codePostalAddUser,professionAddUser,passwordAddUser);
-            
+            Utilisateur updateUtilisateur = new Utilisateur(emailAddUser,telephoneUpdUser,nomUpdUser,prenomAddUser,villeAddUser,adresseAddUser,codePostalAddUser,professionAddUser,passwordAddUser);
+            userDao.update(updateUtilisateur);
             
             // On met a jour l'interface
             
