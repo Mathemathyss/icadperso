@@ -26,6 +26,23 @@ public class UtilisateurDAO {
 //public Utilisateur get(Interger ID_UTILISATEUR) {
 //    
 //}
-
-   
+//    public static UtilisateurDAO getInstance() {
+//        try {
+//            Class.forName("com.mysql.jdbc.Driver");
+//        } catch (ClassNotFoundException e) {
+//
+//        }
+//        UtilisateurDAO instance = new UtilisateurDAO (
+//                "jdbc:mysql://localhost:3306/javaee", "root", "");
+//        return instance;
+//    }
+//
+//    public Connection getConnection() throws SQLException {
+//        return DriverManager.getConnection(url, username, password);
+//    }
+//
+//    // Récupération du Dao
+//    public UtilisateurDAO getUtilisateurDao() {
+//        return new UtilisateurDaoImpl(this);
+//    }
 }
