@@ -4,7 +4,11 @@ import icad.model.MySQLConnection;
 import icad.model.Utilisateur;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -42,6 +46,37 @@ public class UtilisateurDAO {
         }
 
     }
+    
+    
+       public List<Utilisateur> lister() {
+        List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
+        Connection connexion = null;
+        Statement statement = null;
+        ResultSet resultat = null;
+
+        try {
+            connexion = UtilisateurDAO.getConnexion();
+            statement = connexion.createStatement();
+            resultat = statement.executeQuery("SELECT nom, prenom FROM noms;");
+
+            while (resultat.next()) {
+                String nom = resultat.getString("nom");
+                String prenom = resultat.getString("prenom");
+
+                Utilisateur utilisateur = new Utilisateur();
+                utilisateur.setNOM_UTILISATEUR(nom);
+                utilisateur.setPRENOM_UTILISATEUR(prenom);
+
+                utilisateurs.add(utilisateur);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return utilisateurs;
+    }
+
+    
+    
 
 //    public Utilisateur get(int ID_UTILISATEUR) {
 //    return instance ;
