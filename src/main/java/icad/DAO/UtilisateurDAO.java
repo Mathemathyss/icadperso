@@ -1,3 +1,5 @@
+package icad.DAO;
+
 
 import icad.model.MySQLConnection;
 import java.sql.Connection;
@@ -11,11 +13,11 @@ import java.sql.Connection;
  *
  * @author jb.loirot
  */
-public class UserDAO {
+public class UtilisateurDAO {
     private Connection connexion;
     
    
-public UserDAO() throws Exception {
+public UtilisateurDAO() throws Exception {
     this.connexion = MySQLConnection.getConnexion();
 }    
 
