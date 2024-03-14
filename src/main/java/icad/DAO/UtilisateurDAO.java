@@ -10,10 +10,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
+
 public class UtilisateurDAO {
 
     private Connection connexion;
@@ -30,7 +27,7 @@ public class UtilisateurDAO {
         return getConnexion();
     }
 
-    public void ajouterUtilisateur (Utilisateur utilisateur) {
+    public void ajouterUtilisateur(Utilisateur utilisateur) {
         Connection connexion = null;
         PreparedStatement preparedStatement = null;
 
@@ -46,10 +43,9 @@ public class UtilisateurDAO {
         }
 
     }
-    
-    
-       public List<Utilisateur> lister() {
-        List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
+
+    public List<Utilisateur> lister() {
+        List<Utilisateur> utilisateurs = new ArrayList<>();
         Connection connexion = null;
         Statement statement = null;
         ResultSet resultat = null;
@@ -63,11 +59,11 @@ public class UtilisateurDAO {
                 String nom = resultat.getString("nom");
                 String prenom = resultat.getString("prenom");
 
-                Utilisateur utilisateur = new Utilisateur();
-                utilisateur.setNOM_UTILISATEUR(nom);
-                utilisateur.setPRENOM_UTILISATEUR(prenom);
+//                Utilisateur utilisateur = new Utilisateur();
+//                utilisateur.setNOM_UTILISATEUR(nom);
+//                utilisateur.setPRENOM_UTILISATEUR(prenom);
 
-                utilisateurs.add(utilisateur);
+//                utilisateurs.add(utilisateur);
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -75,14 +71,9 @@ public class UtilisateurDAO {
         return utilisateurs;
     }
 
-    
-    
-
 //    public Utilisateur get(int ID_UTILISATEUR) {
 //    return instance ;
 //    }
-    
-    
 //    public static UtilisateurDAO getInstance() {
 //        try {
 //            Class.forName("com.mysql.jdbc.Driver");
