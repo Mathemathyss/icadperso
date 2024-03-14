@@ -236,6 +236,7 @@ public class AddUserFrame extends javax.swing.JFrame {
 
     private void btnValiderAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderAddUserActionPerformed
         try {            
+            // On récupère les informations saisi par l'utilisateur
             String nomAddUser = this.getNomAddUser();
             String prenomAddUser = this.getPrenomAddUser();
             String adresseAddUser = this.getAdresseAddUser();
@@ -246,6 +247,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             int codePostalAddUser = this.getCPAddUser();
             String emailAddUser = this.getEmailAddUser();
             
+            // On demande au modèle d'insérer ce nom en base
             UtilisateurDAO userDao = new UtilisateurDAO();
             Utilisateur nouvelUtilisateur = new Utilisateur(emailAddUser, telephoneAddUser, nomAddUser, prenomAddUser, villeAddUser, adresseAddUser, codePostalAddUser, professionAddUser, passwordAddUser);
             userDao.create(nouvelUtilisateur);
