@@ -245,7 +245,7 @@ public class AddUserFrame extends javax.swing.JFrame {
             String passwordAddUser = this.getMDPAddUser();
             int codePostalAddUser = this.getCPAddUser();
             String emailAddUser = this.getEmailAddUser();
-
+            
             UtilisateurDAO userDao = new UtilisateurDAO();
             Utilisateur nouvelUtilisateur = new Utilisateur(emailAddUser, telephoneAddUser, nomAddUser, prenomAddUser, villeAddUser, adresseAddUser, codePostalAddUser, professionAddUser, passwordAddUser);
             userDao.create(nouvelUtilisateur);
