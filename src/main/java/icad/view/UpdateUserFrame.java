@@ -4,6 +4,8 @@
  */
 package icad.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author m.votte
@@ -15,6 +17,42 @@ public class UpdateUserFrame extends javax.swing.JFrame {
      */
     public UpdateUserFrame() {
         initComponents();
+    }
+
+    public JTextField getAdresseUpdUser() {
+        return tfAdresseUpdUser;
+    }
+
+    public JTextField getCPUpdUser() {
+        return tfCPUpdUser;
+    }
+
+    public JTextField getEmailUpdUser() {
+        return tfEmailUpdUser;
+    }
+
+    public JTextField getMDPUpdUser() {
+        return tfMDPUpdUser;
+    }
+
+    public JTextField getNomUpdUser() {
+        return tfNomUpdUser;
+    }
+
+    public JTextField getPrenomUpdUser() {
+        return tfPrenomUpdUser;
+    }
+
+    public JTextField getProfessionUpdUser() {
+        return tfProfessionUpdUser;
+    }
+
+    public JTextField getTelUpdUser() {
+        return tfTelUpdUser;
+    }
+
+    public JTextField getVilleUpdUser() {
+        return tfVilleUpdUser;
     }
 
     /**
