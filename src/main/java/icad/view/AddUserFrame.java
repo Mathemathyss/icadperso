@@ -4,6 +4,8 @@
  */
 package icad.view;
 
+import javax.swing.JTextField;
+
 /**
  *
  * @author m.votte
@@ -17,6 +19,43 @@ public class AddUserFrame extends javax.swing.JFrame {
         initComponents();
     }
 
+    public String getAdresseAddUser() {
+        return tfAdresseAddUser.getText();
+    }
+
+    public String getCPAddUser() {
+        return tfCPAddUser.getText();
+    }
+
+    public String getEmailAddUser() {
+        return tfEmailAddUser.getText();
+    }
+
+    public String getMDPAddUser() {
+        return tfMDPAddUser.getText();
+    }
+
+    public String getNomAddUser() {
+        return tfNomAddUser.getText();
+    }
+
+    public String getPrenomAddUser() {
+        return tfPrenomAddUser.getText();
+    }
+
+    public String getProfessionAddUser() {
+        return tfProfessionAddUser.getText();
+    }
+
+    public String getTelAddUser() {
+        return tfTelAddUser.getText();
+    }
+
+    public String getVilleAddUser() {
+        return tfVilleAddUser.getText();
+    }
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -74,6 +113,16 @@ public class AddUserFrame extends javax.swing.JFrame {
         jLabel8.setText("Mot de passe :");
 
         btnValiderAddUser.setText("Valider");
+        btnValiderAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnValiderAddUserMouseClicked(evt);
+            }
+        });
+        btnValiderAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnValiderAddUserActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel9.setText("Téléphone :");
@@ -179,6 +228,14 @@ public class AddUserFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnValiderAddUserMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnValiderAddUserMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnValiderAddUserMouseClicked
+
+    private void btnValiderAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderAddUserActionPerformed
+        String nomAddUser = this.getNomAddUser();
+    }//GEN-LAST:event_btnValiderAddUserActionPerformed
 
     /**
      * @param args the command line arguments

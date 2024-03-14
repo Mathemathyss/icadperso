@@ -4,6 +4,9 @@
  */
 package icad.view;
 
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author m.votte
@@ -17,7 +20,42 @@ public class showUserFrame extends javax.swing.JFrame {
         initComponents();
     }
 
-    
+    public void setAdresseShowUser(String AdresseShowUser) {
+        this.tfAdresseShowUser.setText(AdresseShowUser);
+    }
+
+    public void setCPShowUser(String CPShowUser) {
+        this.tfCPShowUser.setText(CPShowUser);
+    }
+
+    public void setEmailShowUser(String EmailShowUser) {
+        this.tfEmailShowUser.setText(EmailShowUser);
+    }
+
+    public void setMDPShowUser(String MDPShowUser) {
+        this.tfMDPShowUser.setText(MDPShowUser);
+    }
+
+    public void setNomShowUser(String NomShowUser) {
+        this.tfNomShowUser.setText(NomShowUser);
+    }
+
+    public void setPrenomShowUser(String PrenomShowUser) {
+        this.tfPrenomShowUser.setText(PrenomShowUser);
+    }
+
+    public void setProfessionShowUser(String ProfessionShowUser) {
+        this.tfProfessionShowUser.setText(ProfessionShowUser);
+    }
+
+    public void setTelShowUser(String TelShowUser) {
+        this.tfTelShowUser.setText(TelShowUser);
+    }
+
+    public void setVilleShowUser(String VilleShowUser) {
+        this.tfVilleShowUser.setText(VilleShowUser);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,7 +83,7 @@ public class showUserFrame extends javax.swing.JFrame {
         btnAnnulerAddUser = new javax.swing.JButton();
         tfVilleShowUser = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        tfProfessionUser = new javax.swing.JLabel();
+        JLabel10 = new javax.swing.JLabel();
         tfProfessionShowUser = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,8 +117,8 @@ public class showUserFrame extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel8.setText("Mot de passe :");
 
-        tfProfessionUser.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
-        tfProfessionUser.setText("Profession :");
+        JLabel10.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
+        JLabel10.setText("Profession :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,7 +129,7 @@ public class showUserFrame extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(182, 182, 182)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(tfProfessionUser)
+                            .addComponent(JLabel10)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -165,7 +203,7 @@ public class showUserFrame extends javax.swing.JFrame {
                     .addComponent(tfTelShowUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(tfProfessionUser)
+                    .addComponent(JLabel10)
                     .addComponent(tfProfessionShowUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(45, 45, 45)
                 .addComponent(btnAnnulerAddUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -211,6 +249,7 @@ public class showUserFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel JLabel10;
     private javax.swing.JButton btnAnnulerAddUser;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -228,7 +267,6 @@ public class showUserFrame extends javax.swing.JFrame {
     private javax.swing.JTextField tfNomShowUser;
     private javax.swing.JTextField tfPrenomShowUser;
     private javax.swing.JTextField tfProfessionShowUser;
-    private javax.swing.JLabel tfProfessionUser;
     private javax.swing.JTextField tfTelShowUser;
     private javax.swing.JTextField tfVilleShowUser;
     // End of variables declaration//GEN-END:variables

@@ -28,7 +28,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="182" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="tfProfessionUser" min="-2" max="-2" attributes="0"/>
+                          <Component id="JLabel10" min="-2" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -124,7 +124,7 @@
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="tfProfessionUser" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="tfProfessionShowUser" alignment="3" min="-2" pref="23" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
@@ -228,7 +228,7 @@
         <Property name="text" type="java.lang.String" value="Mot de passe :"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="tfProfessionUser">
+    <Component class="javax.swing.JLabel" name="JLabel10">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Dialog" size="16" style="0"/>
