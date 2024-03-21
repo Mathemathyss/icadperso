@@ -6,7 +6,8 @@ package icad.view;
 
 import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
-import java.awt.List;
+import java.util.List;
+
 import javax.swing.table.DefaultTableModel;
 
 /**
