@@ -4,6 +4,11 @@
  */
 package icad.view;
 
+import icad.DAO.UtilisateurDAO;
+import icad.model.Utilisateur;
+import java.awt.List;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author m.votte
@@ -15,7 +20,33 @@ public class MainFrame extends javax.swing.JFrame {
      */
     public MainFrame() {
         initComponents();
-        
+
+        this.tabListUser.setModel(new DefaultTableModel());
+
+        this.updateUI();
+    }
+
+    public void updateUI() {
+        try {
+
+            // on récupère le mondèle du Jtable
+            DefaultTableModel tblUserModel = (DefaultTableModel) this.tabListUser.getModel();
+            // On récupère la liste des utilsateurs
+            UtilisateurDAO utilisateurDao = new UtilisateurDAO();
+            List<Utilisateur> utilisateurs = utilisateurDao.getAll();
+            // On vide le model 
+            tblUserModel.setRowCount(0);
+            // on repeuple le model à partir de la liste des utilsateurs
+            for (Utilisateur utilisateur : utilisateurs) {
+                tblUserModel.addRow(new Object[]{utilisateur.getNOM_UTILISATEUR(),
+                    utilisateur.getPRENOM_UTILISATEUR(),
+                    utilisateur.getEMAIL_UTILISATEUR(),
+                    utilisateur.getNO_TEL_UTILISATEUR()});
+            }
+        } catch (Exception e) {
+        }
+
+
     }
 
     /**
@@ -150,5 +181,3 @@ public class MainFrame extends javax.swing.JFrame {
     private javax.swing.JTable tabListUser;
     // End of variables declaration//GEN-END:variables
 }
-
-
