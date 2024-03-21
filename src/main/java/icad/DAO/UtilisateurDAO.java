@@ -6,11 +6,13 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 
 
 public class UtilisateurDAO {
@@ -22,9 +24,29 @@ public class UtilisateurDAO {
     }
 
     public Utilisateur create(Utilisateur utilisateur) {
-        return utilisateur;
+        try {
+            Connection con = this.connexion;
+            String sql = "INSERT INTO utilisateur (ID_UTILISATEUR, EMAIL_UTILISATEUR, NO_TEL_UTILISATEUR, NOM_UTILISATEUR, PRENOM_UTILISATEUR, VILLE_UTILISATEUR, ADRESSE_UTILISATEUR, CP_UTILISATEUR, FONCTION_UTILISATEUR, MDP_HASH_UTILISATEUR) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(sql);
+            ps.setInt(1, utilisateur.getID_UTILISATEUR());
+            ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
+            ps.setInt(3, utilisateur.getNO_TEL_UTILISATEUR());
+            ps.setString(4, utilisateur.getNOM_UTILISATEUR());
+            ps.setString(5, utilisateur.getPRENOM_UTILISATEUR());
+            ps.setString(6, utilisateur.getVILLE_UTILISATEUR());
+            ps.setString(7, utilisateur.getADRESSE_UTILISATEUR());
+            ps.setInt(8, utilisateur.getCP_UTILISATEUR());
+            ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
+            ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
+            ps.executeUpdate();
+            return utilisateur;
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
+            return utilisateur;
+        }
     }
-    
+
     public List<Utilisateur> getAll() {
         List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
         String query = "SELECT * FROM UTILISATEUR";
@@ -53,7 +75,6 @@ public class UtilisateurDAO {
 
         return utilisateurs;
     }
-
 
     public static Connection getConnexion() {
         return getConnexion();
@@ -94,7 +115,6 @@ public class UtilisateurDAO {
 //                Utilisateur utilisateur = new Utilisateur();
 //                utilisateur.setNOM_UTILISATEUR(nom);
 //                utilisateur.setPRENOM_UTILISATEUR(prenom);
-
 //                utilisateurs.add(utilisateur);
             }
         } catch (SQLException e) {
