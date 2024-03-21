@@ -73,11 +73,11 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabListUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null},
-                {null, null, null}
+                {null, null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3"
+                "Nom", "Prénom", "Tel", "Email", "Adresse", "Ville", "Code Postal", "Fonction"
             }
         ));
         jScrollPane1.setViewportView(tabListUser);
