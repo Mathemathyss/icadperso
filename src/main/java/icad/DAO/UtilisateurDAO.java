@@ -14,7 +14,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
 public class UtilisateurDAO {
 
     private Connection connexion;
@@ -80,61 +79,52 @@ public class UtilisateurDAO {
         return getConnexion();
     }
 
-    public void ajouterUtilisateur(Utilisateur utilisateur) {
-        Connection connexion = null;
-        PreparedStatement preparedStatement = null;
-
+    public Utilisateur update(Utilisateur utilisateur) {
         try {
-            connexion = UtilisateurDAO.getConnexion();
-            preparedStatement = connexion.prepareStatement("INSERT INTO noms(nom, prenom) VALUES(?, ?);");
-            preparedStatement.setString(1, utilisateur.getNOM_UTILISATEUR());
-            preparedStatement.setString(2, utilisateur.getPRENOM_UTILISATEUR());
-
-            preparedStatement.executeUpdate();
-        } catch (SQLException e) {
+            Connection connection = this.connexion;
+            String sql = "UPDATE utilisateur set ID_UTILISATEUR = ?, EMAIL_UTILISATEUR = ?, NO_TEL_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
+            PreparedStatement ps = connection.prepareStatement(sql);
+            ps.setInt(1, utilisateur.getID_UTILISATEUR());
+            ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
+            ps.setInt(3, utilisateur.getNO_TEL_UTILISATEUR());
+            ps.setString(4, utilisateur.getNOM_UTILISATEUR());
+            ps.setString(5, utilisateur.getPRENOM_UTILISATEUR());
+            ps.setString(6, utilisateur.getVILLE_UTILISATEUR());
+            ps.setString(7, utilisateur.getADRESSE_UTILISATEUR());
+            ps.setInt(8, utilisateur.getCP_UTILISATEUR());
+            ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
+            ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
+            ps.executeUpdate();
+            return utilisateur;
+        } catch (Exception e) {
             e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "DB : Erreur lors de la modification de l'utilisateur");
+            return utilisateur;
+        }
+    }
+    
+    public Utilisateur delete(Utilisateur utilisateur) {
+        try {
+            Connection connection = this.connexion;
+            String sql = "DELETE FROM utilisateur ID_UTILISATEUR = ?, EMAIL_UTILISATEUR = ?, NO_TEL_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
+            PreparedStatement ps = connection.prepareStatement(sql);;
+            ps.setInt(1, utilisateur.getID_UTILISATEUR());
+            ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
+            ps.setInt(3, utilisateur.getNO_TEL_UTILISATEUR());
+            ps.setString(4, utilisateur.getNOM_UTILISATEUR());
+            ps.setString(5, utilisateur.getPRENOM_UTILISATEUR());
+            ps.setString(6, utilisateur.getVILLE_UTILISATEUR());
+            ps.setString(7, utilisateur.getADRESSE_UTILISATEUR());
+            ps.setInt(8, utilisateur.getCP_UTILISATEUR());
+            ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
+            ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
+            ps.executeUpdate();
+            return utilisateur;
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, "DB : Erreur lors de la suppression de l'utilisateur");
+            return utilisateur;
         }
 
     }
-
-    public List<Utilisateur> lister() {
-        List<Utilisateur> utilisateurs = new ArrayList<>();
-        Connection connexion = null;
-        Statement statement = null;
-        ResultSet resultat = null;
-
-        try {
-            connexion = UtilisateurDAO.getConnexion();
-            statement = connexion.createStatement();
-            resultat = statement.executeQuery("SELECT nom, prenom FROM noms;");
-
-            while (resultat.next()) {
-                String nom = resultat.getString("nom");
-                String prenom = resultat.getString("prenom");
-
-//                Utilisateur utilisateur = new Utilisateur();
-//                utilisateur.setNOM_UTILISATEUR(nom);
-//                utilisateur.setPRENOM_UTILISATEUR(prenom);
-//                utilisateurs.add(utilisateur);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return utilisateurs;
-    }
-
-//    public Utilisateur get(int ID_UTILISATEUR) {
-//    return instance ;
-//    }
-//    public static UtilisateurDAO getInstance() {
-//        try {
-//            Class.forName("com.mysql.jdbc.Driver");
-//        } catch (ClassNotFoundException e) {
-//
-//        }
-//        UtilisateurDAO instance = new UtilisateurDAO (
-//                "jdbc:mysql://localhost:3306/javaee", "root", "");
-//        return instance;
-//    }
-//
 }
