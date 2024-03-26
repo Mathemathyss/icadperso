@@ -6,6 +6,7 @@ package icad.view;
 
 import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
+import java.awt.Color;
 import java.util.List;
 
 import javax.swing.table.DefaultTableModel;
@@ -88,6 +89,14 @@ public class MainFrame extends javax.swing.JFrame {
         setTitle("Page Principale");
 
         btnAddUser.setText("Ajouter un Utilisateur");
+        btnAddUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnAddUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnAddUserMouseExited(evt);
+            }
+        });
 
         tabListUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -100,6 +109,14 @@ public class MainFrame extends javax.swing.JFrame {
         jScrollPane1.setViewportView(tabListUser);
 
         btnModifUser.setText("Modifier un Utilisateur");
+        btnModifUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnModifUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnModifUserMouseExited(evt);
+            }
+        });
         btnModifUser.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnModifUserActionPerformed(evt);
@@ -107,6 +124,14 @@ public class MainFrame extends javax.swing.JFrame {
         });
 
         btnDelUser.setText("Supprimer un Utilisateur");
+        btnDelUser.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnDelUserMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnDelUserMouseExited(evt);
+            }
+        });
 
         labListUser.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         labListUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -154,6 +179,38 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifUserActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_btnModifUserActionPerformed
+
+    private void btnAddUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddUserMouseEntered
+        // TODO add your handling code here:        
+        btnAddUser.setBackground(new Color(151, 151, 151));
+    }//GEN-LAST:event_btnAddUserMouseEntered
+
+    private void btnAddUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddUserMouseExited
+        // TODO add your handling code here:
+        btnAddUser.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_btnAddUserMouseExited
+
+    private void btnModifUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifUserMouseEntered
+        // TODO add your handling code here:
+        btnModifUser.setBackground(new Color(151, 151, 151));
+    }//GEN-LAST:event_btnModifUserMouseEntered
+
+    private void btnModifUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnModifUserMouseExited
+        // TODO add your handling code here:
+        btnModifUser.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_btnModifUserMouseExited
+
+    private void btnDelUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDelUserMouseEntered
+        // TODO add your handling code here:
+        btnDelUser.setBackground(new Color(151, 151, 151));
+    }//GEN-LAST:event_btnDelUserMouseEntered
+
+    private void btnDelUserMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDelUserMouseExited
+        // TODO add your handling code here:
+        btnDelUser.setBackground(new Color(204, 204, 204));
+    }//GEN-LAST:event_btnDelUserMouseExited
+
+
 
     /**
      * @param args the command line arguments
