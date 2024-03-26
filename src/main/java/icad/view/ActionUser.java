@@ -12,6 +12,7 @@ import icad.model.Utilisateur;
  * @author m.votte
  */
 public class ActionUser extends javax.swing.JPanel {
+    private int idUser;
 
     /**
      * Creates new form ActionUser
@@ -20,9 +21,19 @@ public class ActionUser extends javax.swing.JPanel {
         initComponents();
     }
 
+    public int getIdUser() {
+        return idUser;
+    }
+
+    public void setIdUser(int idUser) {
+        this.idUser = idUser;
+    }
+    
+
     public void setTitre(String Titre) {
         this.JLTitre.setText(Titre);
     }
+    
     
     public String getAdresseUser() {
         return tfAdresseUser.getText();

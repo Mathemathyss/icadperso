@@ -8,6 +8,8 @@ import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
 import java.awt.Color;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
@@ -231,20 +233,39 @@ public class MainFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDelUserMouseExited
 
     private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
-        // TODO add your handling code here:
-                String[] options = {"Valider", "Annuler"};
-                ActionUser actionUser = new ActionUser();
-                actionUser.setTitre("Créer un utilisateur");
-
-        int result = JOptionPane.showOptionDialog(null,
-                actionUser,
-                "Ajouter un utilisateur",
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.PLAIN_MESSAGE,
-                null, //no custom icon
-                options, //button titles
-                options[0] //default button
-        );
+        try {
+            // TODO add your handling code here:
+            String[] options = {"Valider", "Annuler"};
+            ActionUser actionUser = new ActionUser();
+            actionUser.setTitre("Créer un utilisateur");
+            
+            int result = JOptionPane.showOptionDialog(null,
+                    actionUser,
+                    "Ajouter un utilisateur",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null, //no custom icon
+                    options, //button titles
+                    options[0] //default button
+            );
+            UtilisateurDAO addUser = new UtilisateurDAO();
+            if (result == JOptionPane.OK_OPTION) {
+                Utilisateur user = new Utilisateur(
+                        actionUser.getEmailUser(),
+                        actionUser.getTelUser(),
+                        actionUser.getNomUser(),
+                        actionUser.getPrenomUser(),
+                        actionUser.getVilleUser(),
+                        actionUser.getAdresseUser(),
+                        actionUser.getCPUser(),
+                        actionUser.getProfessionUser(),
+                        actionUser.getMDPUser()
+                );                    
+                addUser.create(user);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnAddUserActionPerformed
 
 
