@@ -146,6 +146,11 @@ public class MainFrame extends javax.swing.JFrame {
                 btnDelUserMouseExited(evt);
             }
         });
+        btnDelUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelUserActionPerformed(evt);
+            }
+        });
 
         labListUser.setFont(new java.awt.Font("Dialog", 0, 36)); // NOI18N
         labListUser.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -294,6 +299,13 @@ public class MainFrame extends javax.swing.JFrame {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
+
+    private void btnDelUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelUserActionPerformed
+        // TODO add your handling code here:
+        String[] options = {"Valider", "Annuler"};
+
+            int result = JOptionPane.showConfirmDialog(null, "Voulez-vous supprimer les utilisateurs sélectionnés ?");
+    }//GEN-LAST:event_btnDelUserActionPerformed
 
     /**
      * @param args the command line arguments
