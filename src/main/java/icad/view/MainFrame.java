@@ -57,7 +57,11 @@ public class MainFrame extends javax.swing.JFrame {
                 tblUserModel.addRow(new Object[]{utilisateur.getNOM_UTILISATEUR(),
                     utilisateur.getPRENOM_UTILISATEUR(),
                     utilisateur.getEMAIL_UTILISATEUR(),
-                    utilisateur.getNO_TEL_UTILISATEUR()});
+                    utilisateur.getNO_TEL_UTILISATEUR(),
+                    utilisateur.getADRESSE_UTILISATEUR(),
+                    utilisateur.getVILLE_UTILISATEUR(),
+                    utilisateur.getCP_UTILISATEUR(),
+                    utilisateur.getFONCTION_UTILISATEUR()});
             }
         } catch (Exception e) {
         }
