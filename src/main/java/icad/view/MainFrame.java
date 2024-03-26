@@ -32,7 +32,12 @@ public class MainFrame extends javax.swing.JFrame {
                 new String[]{
                     "Nom", "Prénom", "Tel", "Email", "Adresse", "Ville", "Code Postal", "Fonction"
                 }
-        );
+        ) {
+            public boolean isCellEditable(int row, int column) {
+                //all cells false
+                return false;
+            }
+        };
         this.tabListUser.setModel(tblUserModel);
 //        tabListUser.setModel(new javax.swing.table.DefaultTableModel(
 //            new Object [][] {
@@ -186,20 +191,41 @@ public class MainFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifUserActionPerformed
-        // TODO add your handling code here:
-        String[] options = {"Valider", "Annuler"};
-                ActionUser actionUser = new ActionUser();
-                actionUser.setTitre("Modifier un utilisateur");
+        try {
+            // TODO add your handling code here:
+            String[] options = {"Valider", "Annuler"};
+            ActionUser actionUser = new ActionUser();
+            actionUser.setTitre("Modifier un utilisateur");
 
-        int result = JOptionPane.showOptionDialog(null,
-                actionUser,
-                "Modifier un utilisateur",
-                JOptionPane.OK_CANCEL_OPTION,
-                JOptionPane.PLAIN_MESSAGE,
-                null, //no custom icon
-                options, //button titles
-                options[0] //default button
-        );
+            int result = JOptionPane.showOptionDialog(null,
+                    actionUser,
+                    "Modifier un utilisateur",
+                    JOptionPane.OK_CANCEL_OPTION,
+                    JOptionPane.PLAIN_MESSAGE,
+                    null, //no custom icon
+                    options, //button titles
+                    options[0] //default button
+            );
+            UtilisateurDAO modifUser = new UtilisateurDAO();
+            if (result == JOptionPane.OK_OPTION) {
+                Utilisateur user = new Utilisateur(
+                        actionUser.getIdUser(),
+                        actionUser.getEmailUser(),
+                        actionUser.getTelUser(),
+                        actionUser.getNomUser(),
+                        actionUser.getPrenomUser(),
+                        actionUser.getVilleUser(),
+                        actionUser.getAdresseUser(),
+                        actionUser.getCPUser(),
+                        actionUser.getProfessionUser(),
+                        actionUser.getMDPUser()
+                );
+                modifUser.update(user);
+                this.updateUI();
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnModifUserActionPerformed
 
     private void btnAddUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddUserMouseEntered
@@ -238,7 +264,7 @@ public class MainFrame extends javax.swing.JFrame {
             String[] options = {"Valider", "Annuler"};
             ActionUser actionUser = new ActionUser();
             actionUser.setTitre("Créer un utilisateur");
-            
+
             int result = JOptionPane.showOptionDialog(null,
                     actionUser,
                     "Ajouter un utilisateur",
@@ -260,15 +286,14 @@ public class MainFrame extends javax.swing.JFrame {
                         actionUser.getCPUser(),
                         actionUser.getProfessionUser(),
                         actionUser.getMDPUser()
-                );                    
+                );
                 addUser.create(user);
+                this.updateUI();
             }
         } catch (Exception ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAddUserActionPerformed
-
-
 
     /**
      * @param args the command line arguments
