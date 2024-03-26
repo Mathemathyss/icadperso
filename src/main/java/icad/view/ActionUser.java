@@ -19,6 +19,11 @@ public class ActionUser extends javax.swing.JPanel {
     public ActionUser() {
         initComponents();
     }
+
+    public void setTitre(String Titre) {
+        this.JLTitre.setText(Titre);
+    }
+    
     public String getAdresseUser() {
         return tfAdresseUser.getText();
     }
@@ -67,7 +72,7 @@ public class ActionUser extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel5 = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        JLTitre = new javax.swing.JLabel();
         tfMDPUser = new javax.swing.JTextField();
         tfEmailUser = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
@@ -76,11 +81,9 @@ public class ActionUser extends javax.swing.JPanel {
         tfProfessionUser = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        btnAnnulerUser = new javax.swing.JButton();
         tfVilleUser = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        btnValiderUser = new javax.swing.JButton();
         tfAdresseUser = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -91,8 +94,8 @@ public class ActionUser extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel5.setText("Ville :");
 
-        jLabel1.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
-        jLabel1.setText("Créer un utilisateur");
+        JLTitre.setFont(new java.awt.Font("Dialog", 0, 24)); // NOI18N
+        JLTitre.setText("Créer un utilisateur");
 
         jLabel6.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel6.setText("Adresse :");
@@ -106,20 +109,11 @@ public class ActionUser extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel2.setText("Nom :");
 
-        btnAnnulerUser.setText("Annuler");
-
         jLabel8.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel8.setText("Mot de passe :");
 
         jLabel3.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel3.setText("Prénom :");
-
-        btnValiderUser.setText("Valider");
-        btnValiderUser.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnValiderUserActionPerformed(evt);
-            }
-        });
 
         jLabel9.setFont(new java.awt.Font("Dialog", 0, 16)); // NOI18N
         jLabel9.setText("Téléphone :");
@@ -131,15 +125,9 @@ public class ActionUser extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(252, 252, 252)
-                .addComponent(btnAnnulerUser, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(51, 51, 51)
-                .addComponent(btnValiderUser, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(JLTitre)
                 .addGap(287, 287, 287))
             .addGroup(layout.createSequentialGroup()
                 .addGap(182, 182, 182)
@@ -176,7 +164,7 @@ public class ActionUser extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(27, Short.MAX_VALUE)
-                .addComponent(jLabel1)
+                .addComponent(JLTitre)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
@@ -213,41 +201,13 @@ public class ActionUser extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel10)
                     .addComponent(tfProfessionUser, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAnnulerUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnValiderUser, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48))
+                .addGap(170, 170, 170))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnValiderUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnValiderUserActionPerformed
-        // TODO add your handling code here:
-        try {            
-            // On récupère les informations saisi par l'utilisateur
-            String nomUser = this.getNomUser();
-            String prenomUser = this.getPrenomUser();
-            String adresseUser = this.getAdresseUser();
-            int telephoneUser = this.getTelUser();
-            String villeUser = this.getVilleUser();
-            String professionUser = this.getProfessionUser();
-            String passwordUser = this.getMDPUser();
-            int codePostalUser = this.getCPUser();
-            String emailUser = this.getEmailUser();
-            
-            // On demande au modèle d'insérer ce nom en base
-            UtilisateurDAO userDao = new UtilisateurDAO();
-            Utilisateur nouvelUtilisateur = new Utilisateur(emailUser, telephoneUser, nomUser, prenomUser, villeUser, adresseUser, codePostalUser, professionUser, passwordUser);
-            userDao.create(nouvelUtilisateur);
-        } catch (Exception e) {
-        }
-    }//GEN-LAST:event_btnValiderUserActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAnnulerUser;
-    private javax.swing.JButton btnValiderUser;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel JLTitre;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

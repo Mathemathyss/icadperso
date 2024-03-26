@@ -8,6 +8,8 @@ import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
 import java.awt.Color;
 import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import javax.swing.table.DefaultTableModel;
 
@@ -97,6 +99,11 @@ public class MainFrame extends javax.swing.JFrame {
                 btnAddUserMouseExited(evt);
             }
         });
+        btnAddUser.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddUserActionPerformed(evt);
+            }
+        });
 
         tabListUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -178,6 +185,19 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifUserActionPerformed
         // TODO add your handling code here:
+        String[] options = {"Valider", "Annuler"};
+                ActionUser actionUser = new ActionUser();
+                actionUser.setTitre("Modifier un utilisateur");
+
+        int result = JOptionPane.showOptionDialog(null,
+                actionUser,
+                "Modifier un utilisateur",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null, //no custom icon
+                options, //button titles
+                options[0] //default button
+        );
     }//GEN-LAST:event_btnModifUserActionPerformed
 
     private void btnAddUserMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddUserMouseEntered
@@ -209,6 +229,23 @@ public class MainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
         btnDelUser.setBackground(new Color(204, 204, 204));
     }//GEN-LAST:event_btnDelUserMouseExited
+
+    private void btnAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddUserActionPerformed
+        // TODO add your handling code here:
+                String[] options = {"Valider", "Annuler"};
+                ActionUser actionUser = new ActionUser();
+                actionUser.setTitre("Créer un utilisateur");
+
+        int result = JOptionPane.showOptionDialog(null,
+                actionUser,
+                "Ajouter un utilisateur",
+                JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.PLAIN_MESSAGE,
+                null, //no custom icon
+                options, //button titles
+                options[0] //default button
+        );
+    }//GEN-LAST:event_btnAddUserActionPerformed
 
 
 
