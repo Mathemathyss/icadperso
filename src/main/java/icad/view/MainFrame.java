@@ -22,7 +22,22 @@ public class MainFrame extends javax.swing.JFrame {
     public MainFrame() {
         initComponents();
 
-        this.tabListUser.setModel(new DefaultTableModel());
+        DefaultTableModel tblUserModel = new DefaultTableModel(
+                null,
+                new String[]{
+                    "Nom", "Prénom", "Tel", "Email", "Adresse", "Ville", "Code Postal", "Fonction"
+                }
+        );
+        this.tabListUser.setModel(tblUserModel);
+//        tabListUser.setModel(new javax.swing.table.DefaultTableModel(
+//            new Object [][] {
+//                {null, null, null, null, null, null, null, null},
+//                {null, null, null, null, null, null, null, null}
+//            },
+//            new String [] {
+//                "Nom", "Prénom", "Tel", "Email", "Adresse", "Ville", "Code Postal", "Fonction"
+//            }
+//        ));
 
         this.updateUI();
     }
@@ -46,7 +61,6 @@ public class MainFrame extends javax.swing.JFrame {
             }
         } catch (Exception e) {
         }
-
 
     }
 
@@ -73,11 +87,10 @@ public class MainFrame extends javax.swing.JFrame {
 
         tabListUser.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null}
+
             },
             new String [] {
-                "Nom", "Prénom", "Tel", "Email", "Adresse", "Ville", "Code Postal", "Fonction"
+
             }
         ));
         jScrollPane1.setViewportView(tabListUser);
