@@ -202,10 +202,15 @@ public class MainFrame extends javax.swing.JFrame {
             String[] options = {"Valider", "Annuler"};
             ActionUser actionUser = new ActionUser();
             actionUser.setTitre("Modifier un utilisateur");
-            //c'est cette ligne qui est sensé fonctionner mais qui fonctionne pas
-            //actionUser.setEmailUser(tblUserModel.getValueAt(row 0).toString());
-            
-
+            DefaultTableModel model = (DefaultTableModel) tabListUser.getModel();
+            actionUser.setNomUser(model.getValueAt(row, 0).toString());
+            actionUser.setPrenomUser(model.getValueAt(row, 1).toString());
+            actionUser.setTelUser(model.getValueAt(row, 2).toString());
+            actionUser.setEmailUser(model.getValueAt(row, 3).toString());
+            actionUser.setAdresseUser(model.getValueAt(row, 4).toString());
+            actionUser.setVilleUser(model.getValueAt(row, 5).toString());
+            actionUser.setCPUser(model.getValueAt(row, 6).toString());
+            actionUser.setProfessionUser(model.getValueAt(row, 7).toString());
             int result = JOptionPane.showOptionDialog(null,
                     actionUser,
                     "Modifier un utilisateur",
