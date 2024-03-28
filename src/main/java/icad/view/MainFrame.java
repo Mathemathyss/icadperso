@@ -320,7 +320,8 @@ public class MainFrame extends javax.swing.JFrame {
                 // Supprimer les utilisateurs sélectionnés du modèle de tableau
                 DefaultTableModel tblUserModel = (DefaultTableModel) tabListUser.getModel();
                 for (int i = selectedRows.length - 1; i >= 0; i--) {
-                    tblUserModel.removeRow(selectedRows[i]);
+                    //tblUserModel.removeRow(selectedRows[i]);
+                    //écrire la méthode pour supprimer l'utilisateur en base de donnée et update UI
                 }
                 // Mise à jour de l'affichage
                 JOptionPane.showMessageDialog(this, "Utilisateurs supprimés avec succès.", "Suppression réussie", JOptionPane.INFORMATION_MESSAGE);
