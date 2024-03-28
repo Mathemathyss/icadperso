@@ -205,8 +205,8 @@ public class MainFrame extends javax.swing.JFrame {
             DefaultTableModel model = (DefaultTableModel) tabListUser.getModel();
             actionUser.setNomUser(model.getValueAt(row, 0).toString());
             actionUser.setPrenomUser(model.getValueAt(row, 1).toString());
-            actionUser.setTelUser(model.getValueAt(row, 2).toString());
-            actionUser.setEmailUser(model.getValueAt(row, 3).toString());
+            actionUser.setEmailUser(model.getValueAt(row, 2).toString());
+            actionUser.setTelUser(model.getValueAt(row, 3).toString());
             actionUser.setAdresseUser(model.getValueAt(row, 4).toString());
             actionUser.setVilleUser(model.getValueAt(row, 5).toString());
             actionUser.setCPUser(model.getValueAt(row, 6).toString());
