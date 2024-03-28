@@ -302,9 +302,33 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnDelUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelUserActionPerformed
         // TODO add your handling code here:
-        String[] options = {"Valider", "Annuler"};
+        //String[] options = {"Valider", "Annuler"};
 
-            int result = JOptionPane.showConfirmDialog(null, "Voulez-vous supprimer les utilisateurs sélectionnés ?");
+        //int result = JOptionPane.showConfirmDialog(null, "Voulez-vous supprimer les utilisateurs sélectionnés ?");
+        try {
+            // Obtenir les indices des lignes sélectionnées
+            int[] selectedRows = tabListUser.getSelectedRows();
+
+            if (selectedRows.length == 0) {
+                JOptionPane.showMessageDialog(this, "Veuillez sélectionner au moins un utilisateur à supprimer.", "Aucune sélection", JOptionPane.WARNING_MESSAGE);
+                return;
+            }
+
+            // Afficher une boîte de dialogue de confirmation
+            int option = JOptionPane.showConfirmDialog(this, "Voulez-vous supprimer les utilisateurs sélectionnés ?", "Confirmation de suppression", JOptionPane.YES_NO_OPTION);
+            if (option == JOptionPane.YES_OPTION) {
+                // Supprimer les utilisateurs sélectionnés du modèle de tableau
+                DefaultTableModel tblUserModel = (DefaultTableModel) tabListUser.getModel();
+                for (int i = selectedRows.length - 1; i >= 0; i--) {
+                    tblUserModel.removeRow(selectedRows[i]);
+                }
+                // Mise à jour de l'affichage
+                JOptionPane.showMessageDialog(this, "Utilisateurs supprimés avec succès.", "Suppression réussie", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } catch (Exception ex) {
+            Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "Une erreur s'est produite lors de la suppression des utilisateurs.", "Erreur", JOptionPane.ERROR_MESSAGE);
+        }
     }//GEN-LAST:event_btnDelUserActionPerformed
 
     /**
