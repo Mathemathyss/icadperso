@@ -198,10 +198,13 @@ public class MainFrame extends javax.swing.JFrame {
     private void btnModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifUserActionPerformed
         try {
             // TODO add your handling code here:
+            int row = tabListUser.getSelectedRow();
             String[] options = {"Valider", "Annuler"};
             ActionUser actionUser = new ActionUser();
             actionUser.setTitre("Modifier un utilisateur");
-
+            //c'est cette ligne qui est sensé fonctionner mais qui fonctionne pas
+            //actionUser.setEmailUser(tblUserModel.getValueAt(row 0).toString());
+            
 
             int result = JOptionPane.showOptionDialog(null,
                     actionUser,
