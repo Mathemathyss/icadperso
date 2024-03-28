@@ -201,6 +201,7 @@ public class MainFrame extends javax.swing.JFrame {
             String[] options = {"Valider", "Annuler"};
             ActionUser actionUser = new ActionUser();
             actionUser.setTitre("Modifier un utilisateur");
+            //actionUser.setEmailUser();
 
             int result = JOptionPane.showOptionDialog(null,
                     actionUser,

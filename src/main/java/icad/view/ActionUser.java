@@ -6,6 +6,7 @@ package icad.view;
 
 import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
+import javax.swing.JTextField;
 
 /**
  *
@@ -32,6 +33,42 @@ public class ActionUser extends javax.swing.JPanel {
 
     public void setTitre(String Titre) {
         this.JLTitre.setText(Titre);
+    }
+
+    public void setAdresseUser(String tfAdresseUser) {
+        this.tfAdresseUser.setText(tfAdresseUser);
+    }
+
+    public void setCPUser(String tfCPUser) {
+        this.tfCPUser.setText(tfCPUser);
+    }
+
+    public void setEmailUser(String tfEmailUser) {
+        this.tfEmailUser.setText(tfEmailUser);
+    }
+
+    public void setMDPUser(String tfMDPUser) {
+        this.tfMDPUser.setText(tfMDPUser);
+    }
+
+    public void setNomUser(String tfNomUser) {
+        this.tfNomUser.setText(tfNomUser);
+    }
+
+    public void setPrenomUser(String tfPrenomUser) {
+        this.tfPrenomUser.setText(tfPrenomUser);
+    }
+
+    public void setProfessionUser(String tfProfessionUser) {
+        this.tfProfessionUser.setText(tfProfessionUser);
+    }
+
+    public void setTelUser(String tfTelUser) {
+        this.tfTelUser.setText(tfTelUser);
+    }
+
+    public void setVilleUser(String tfVilleUser) {
+        this.tfVilleUser.setText(tfVilleUser);
     }
     
     
