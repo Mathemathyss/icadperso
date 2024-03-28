@@ -82,7 +82,7 @@ public class UtilisateurDAO {
     public Utilisateur update(Utilisateur utilisateur) {
         try {
             Connection connection = this.connexion;
-            String sql = "UPDATE utilisateur set ID_UTILISATEUR = ?, EMAIL_UTILISATEUR = ?, NO_TEL_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
+            String sql = "UPDATE utilisateur set ID_UTILISATEUR = ?, EMAIL_UTILISATEUR = ?, NO_TELEPHONE_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setInt(1, utilisateur.getID_UTILISATEUR());
             ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
