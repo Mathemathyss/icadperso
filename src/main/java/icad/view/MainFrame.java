@@ -7,6 +7,7 @@ package icad.view;
 import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
 import java.awt.Color;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,8 +25,10 @@ public class MainFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainFrame
      */
+    private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
     public MainFrame() {
         initComponents();
+        
 
         DefaultTableModel tblUserModel = new DefaultTableModel(
                 null,
@@ -59,12 +62,14 @@ public class MainFrame extends javax.swing.JFrame {
             DefaultTableModel tblUserModel = (DefaultTableModel) this.tabListUser.getModel();
             // On récupère la liste des utilsateurs
             UtilisateurDAO utilisateurDao = new UtilisateurDAO();
-            List<Utilisateur> utilisateurs = utilisateurDao.getAll();
+            this.utilisateurs = utilisateurDao.getAll();
             // On vide le model 
             tblUserModel.setRowCount(0);
             // on repeuple le model à partir de la liste des utilsateurs
             for (Utilisateur utilisateur : utilisateurs) {
-                tblUserModel.addRow(new Object[]{utilisateur.getNOM_UTILISATEUR(),
+                tblUserModel.addRow(new Object[]{
+                    //                    utilisateur.getID_UTILISATEUR(),
+                    utilisateur.getNOM_UTILISATEUR(),
                     utilisateur.getPRENOM_UTILISATEUR(),
                     utilisateur.getEMAIL_UTILISATEUR(),
                     utilisateur.getNO_TEL_UTILISATEUR(),
@@ -326,15 +331,19 @@ public class MainFrame extends javax.swing.JFrame {
             // Afficher une boîte de dialogue de confirmation
             int option = JOptionPane.showConfirmDialog(this, "Voulez-vous supprimer les utilisateurs sélectionnés ?", "Confirmation de suppression", JOptionPane.YES_NO_OPTION);
             if (option == JOptionPane.YES_OPTION) {
-                // Supprimer les utilisateurs sélectionnés du modèle de tableau
-                DefaultTableModel tblUserModel = (DefaultTableModel) tabListUser.getModel();
+                // Supprimer les utilisateurs sélectionnés du modèle de tableau                
                 for (int i = selectedRows.length - 1; i >= 0; i--) {
-                    //tblUserModel.removeRow(selectedRows[i]);
-                    //écrire la méthode pour supprimer l'utilisateur en base de donnée et update UI
+                    int idUtilisateur = this.utilisateurs.get(selectedRows[i]).getID_UTILISATEUR();
+                    //écrire la méthode pour supprimer l'utilisateur en base de donnée et update UI**
+                    System.out.println(idUtilisateur);
+                    UtilisateurDAO utilisateurDAO = new UtilisateurDAO();
+                    utilisateurDAO.delete(idUtilisateur);
+                    this.updateUI();
                 }
                 // Mise à jour de l'affichage
                 JOptionPane.showMessageDialog(this, "Utilisateurs supprimés avec succès.", "Suppression réussie", JOptionPane.INFORMATION_MESSAGE);
             }
+
         } catch (Exception ex) {
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
             JOptionPane.showMessageDialog(this, "Une erreur s'est produite lors de la suppression des utilisateurs.", "Erreur", JOptionPane.ERROR_MESSAGE);

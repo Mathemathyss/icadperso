@@ -82,9 +82,8 @@ public class UtilisateurDAO {
     public Utilisateur update(Utilisateur utilisateur) {
         try {
             Connection connection = this.connexion;
-            String sql = "UPDATE utilisateur set ID_UTILISATEUR = ?, EMAIL_UTILISATEUR = ?, NO_TELEPHONE_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
+            String sql = "UPDATE utilisateur SET EMAIL_UTILISATEUR = ?, NO_TELEPHONE_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setInt(1, utilisateur.getID_UTILISATEUR());
             ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
             ps.setInt(3, utilisateur.getNO_TEL_UTILISATEUR());
             ps.setString(4, utilisateur.getNOM_UTILISATEUR());
@@ -96,34 +95,29 @@ public class UtilisateurDAO {
             ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
             ps.executeUpdate();
             return utilisateur;
+//            System.out.println("Utilisateur modifié avec succès.");
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la modification de l'utilisateur");
             return utilisateur;
         }
     }
-    
-    public Utilisateur delete(Utilisateur utilisateur) {
+
+    public void delete(int idUtilisateur) {
         try {
             Connection connection = this.connexion;
-            String sql = "DELETE FROM utilisateur ID_UTILISATEUR = ?, EMAIL_UTILISATEUR = ?, NO_TEL_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
+            String sql = "DELETE FROM utilisateur where ID_UTILISATEUR = ?";
             PreparedStatement ps = connection.prepareStatement(sql);;
-            ps.setInt(1, utilisateur.getID_UTILISATEUR());
-            ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
-            ps.setInt(3, utilisateur.getNO_TEL_UTILISATEUR());
-            ps.setString(4, utilisateur.getNOM_UTILISATEUR());
-            ps.setString(5, utilisateur.getPRENOM_UTILISATEUR());
-            ps.setString(6, utilisateur.getVILLE_UTILISATEUR());
-            ps.setString(7, utilisateur.getADRESSE_UTILISATEUR());
-            ps.setInt(8, utilisateur.getCP_UTILISATEUR());
-            ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
-            ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
-            ps.executeUpdate();
-            return utilisateur;
+            ps.setInt(1, idUtilisateur);            
+            int rowsAffected = ps.executeUpdate();
+            if (rowsAffected == 1) {
+                System.out.println("Utilisateur supprimé avec succès.");
+            } else {
+                System.out.println("Aucun utilisateur n'a été supprimé (ID introuvable).");
+            }
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la suppression de l'utilisateur");
-            return utilisateur;
         }
 
     }
