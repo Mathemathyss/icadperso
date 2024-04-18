@@ -7,6 +7,7 @@ package icad.view;
 import icad.DAO.UtilisateurDAO;
 import icad.model.Utilisateur;
 import java.awt.Color;
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
@@ -26,9 +27,9 @@ public class MainFrame extends javax.swing.JFrame {
      * Creates new form MainFrame
      */
     private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
+
     public MainFrame() {
         initComponents();
-        
 
         DefaultTableModel tblUserModel = new DefaultTableModel(
                 null,
@@ -202,6 +203,7 @@ public class MainFrame extends javax.swing.JFrame {
 
     private void btnModifUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModifUserActionPerformed
         try {
+            System.out.println("btnModifUserActionPerformed: MARCHE");
             // TODO add your handling code here:
             int row = tabListUser.getSelectedRow();
             String[] options = {"Valider", "Annuler"};
@@ -239,10 +241,16 @@ public class MainFrame extends javax.swing.JFrame {
                         actionUser.getProfessionUser(),
                         actionUser.getMDPUser()
                 );
+//                cracra
+                for (int i = tabListUser.getSelectedRows().length - 1; i >= 0; i--) {
+                    int idUtilisateur = this.utilisateurs.get(tabListUser.getSelectedRows()[i]).getID_UTILISATEUR();
+                    user.setID_UTILISATEUR(idUtilisateur);
+                }
                 modifUser.update(user);
                 this.updateUI();
             }
         } catch (Exception ex) {
+            System.out.println("btnModifUserActionPerformed / RATE CASSE");
             Logger.getLogger(MainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnModifUserActionPerformed

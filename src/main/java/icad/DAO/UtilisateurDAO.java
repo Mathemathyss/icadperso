@@ -22,7 +22,7 @@ public class UtilisateurDAO {
         this.connexion = MySQLConnection.getConnexion();
     }
 
-    public Utilisateur create(Utilisateur utilisateur) {
+    public void create(Utilisateur utilisateur) {
         try {
             Connection con = this.connexion;
             String sql = "INSERT INTO utilisateur (ID_UTILISATEUR, EMAIL_UTILISATEUR, NO_TELEPHONE_UTILISATEUR, NOM_UTILISATEUR, PRENOM_UTILISATEUR, VILLE_UTILISATEUR, ADRESSE_UTILISATEUR, CP_UTILISATEUR, FONCTION_UTILISATEUR, MDP_HASH_UTILISATEUR) VALUES (?,?,?,?,?,?,?,?,?,?)";
@@ -38,11 +38,9 @@ public class UtilisateurDAO {
             ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
             ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
             ps.executeUpdate();
-            return utilisateur;
         } catch (Exception e) {
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la création de l'utilisateur");
-            return utilisateur;
         }
     }
 
@@ -79,27 +77,31 @@ public class UtilisateurDAO {
         return getConnexion();
     }
 
-    public Utilisateur update(Utilisateur utilisateur) {
+    public void update(Utilisateur utilisateur) {
         try {
+            System.out.println("update marche: \n" + utilisateur);
             Connection connection = this.connexion;
-            String sql = "UPDATE utilisateur SET EMAIL_UTILISATEUR = ?, NO_TELEPHONE_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? ";
+            String sql = "UPDATE utilisateur SET EMAIL_UTILISATEUR = ?, NO_TELEPHONE_UTILISATEUR = ?, NOM_UTILISATEUR = ?, PRENOM_UTILISATEUR = ?, VILLE_UTILISATEUR = ?, ADRESSE_UTILISATEUR = ?, CP_UTILISATEUR = ?, FONCTION_UTILISATEUR = ?, MDP_HASH_UTILISATEUR = ? WHERE ID_UTILISATEUR = ?";
             PreparedStatement ps = connection.prepareStatement(sql);
-            ps.setString(2, utilisateur.getEMAIL_UTILISATEUR());
-            ps.setInt(3, utilisateur.getNO_TEL_UTILISATEUR());
-            ps.setString(4, utilisateur.getNOM_UTILISATEUR());
-            ps.setString(5, utilisateur.getPRENOM_UTILISATEUR());
-            ps.setString(6, utilisateur.getVILLE_UTILISATEUR());
-            ps.setString(7, utilisateur.getADRESSE_UTILISATEUR());
-            ps.setInt(8, utilisateur.getCP_UTILISATEUR());
-            ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
-            ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
-            ps.executeUpdate();
-            return utilisateur;
+            ps.setString(1, utilisateur.getEMAIL_UTILISATEUR());
+            ps.setInt(2, utilisateur.getNO_TEL_UTILISATEUR());
+            ps.setString(3, utilisateur.getNOM_UTILISATEUR());
+            ps.setString(4, utilisateur.getPRENOM_UTILISATEUR());
+            ps.setString(5, utilisateur.getVILLE_UTILISATEUR());
+            ps.setString(6, utilisateur.getADRESSE_UTILISATEUR());
+            ps.setInt(7, utilisateur.getCP_UTILISATEUR());
+            ps.setString(8, utilisateur.getFONCTION_UTILISATEUR());
+            ps.setString(9, utilisateur.getMDP_HASH_UTILISATEUR());
+            ps.setInt(10, utilisateur.getID_UTILISATEUR());
+            System.out.println("isPoolable : " + (ps.isPoolable() ? "OUAIIII"   : "NONNNNN"));
+            int  req = ps.executeUpdate();
+            System.out.println("req : " + req);
+                               
 //            System.out.println("Utilisateur modifié avec succès.");
         } catch (Exception e) {
+            System.out.println("update caca");
             e.printStackTrace();
             JOptionPane.showMessageDialog(null, "DB : Erreur lors de la modification de l'utilisateur");
-            return utilisateur;
         }
     }
 
@@ -108,7 +110,7 @@ public class UtilisateurDAO {
             Connection connection = this.connexion;
             String sql = "DELETE FROM utilisateur where ID_UTILISATEUR = ?";
             PreparedStatement ps = connection.prepareStatement(sql);;
-            ps.setInt(1, idUtilisateur);            
+            ps.setInt(1, idUtilisateur);
             int rowsAffected = ps.executeUpdate();
             if (rowsAffected == 1) {
                 System.out.println("Utilisateur supprimé avec succès.");

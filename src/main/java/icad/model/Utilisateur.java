@@ -5,6 +5,7 @@
 package icad.model;
 
 public class Utilisateur {
+
     private int ID_UTILISATEUR;
     private String EMAIL_UTILISATEUR;
     private int NO_TELEPHONE_UTILISATEUR;
@@ -43,6 +44,13 @@ public class Utilisateur {
         this.MDP_HASH_UTILISATEUR = MDP_HASH_UTILISATEUR;
     }
 
+    @Override
+    public String toString() {
+        return "Utilisateur{" + "ID_UTILISATEUR=" + ID_UTILISATEUR + ", EMAIL_UTILISATEUR=" + EMAIL_UTILISATEUR + ", NO_TELEPHONE_UTILISATEUR=" + NO_TELEPHONE_UTILISATEUR + ", NOM_UTILISATEUR=" + NOM_UTILISATEUR + ", PRENOM_UTILISATEUR=" + PRENOM_UTILISATEUR + ", VILLE_UTILISATEUR=" + VILLE_UTILISATEUR + ", ADRESSE_UTILISATEUR=" + ADRESSE_UTILISATEUR + ", CP_UTILISATEUR=" + CP_UTILISATEUR + ", FONCTION_UTILISATEUR=" + FONCTION_UTILISATEUR + ", MDP_HASH_UTILISATEUR=" + MDP_HASH_UTILISATEUR + '}';
+    }
+
+    
+    
     public int getID_UTILISATEUR() {
         return ID_UTILISATEUR;
     }
