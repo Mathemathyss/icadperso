@@ -57,8 +57,8 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="JLTitre" min="-2" pref="224" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="268" max="-2" attributes="0"/>
+              <Component id="JLTitre" min="-2" pref="363" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="129" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
