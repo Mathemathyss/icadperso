@@ -13,6 +13,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.mindrot.jbcrypt.BCrypt;
 
 public class UtilisateurDAO {
 
@@ -36,7 +37,7 @@ public class UtilisateurDAO {
             ps.setString(7, utilisateur.getADRESSE_UTILISATEUR());
             ps.setInt(8, utilisateur.getCP_UTILISATEUR());
             ps.setString(9, utilisateur.getFONCTION_UTILISATEUR());
-            ps.setString(10, utilisateur.getMDP_HASH_UTILISATEUR());
+            ps.setString(10, hashPassword(utilisateur.getMDP_HASH_UTILISATEUR()));
             ps.executeUpdate();
         } catch (Exception e) {
             e.printStackTrace();
@@ -123,4 +124,10 @@ public class UtilisateurDAO {
         }
 
     }
+    
+    
+    public static String hashPassword(String password) {
+        return BCrypt.hashpw(password, BCrypt.gensalt());
+    }
+    
 }
