@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package icad.view;
 
 import icad.DAO.UtilisateurDAO;
@@ -17,15 +13,9 @@ import javax.swing.JPanel;
 
 import javax.swing.table.DefaultTableModel;
 
-/**
- *
- * @author m.votte
- */
+
 public class MainFrame extends javax.swing.JFrame {
 
-    /**
-     * Creates new form MainFrame
-     */
     private List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
 
     public MainFrame() {
