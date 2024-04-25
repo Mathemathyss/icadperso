@@ -24,7 +24,7 @@ public class MainFrame extends javax.swing.JFrame {
         DefaultTableModel tblUserModel = new DefaultTableModel(
                 null,
                 new String[]{
-                    "Nom", "Prénom", "Tel", "Email", "Adresse", "Ville", "Code Postal", "Fonction"
+                    "Nom", "Prénom", "Email", "Tel", "Adresse", "Ville", "Code Postal", "Fonction"
                 }
         ) {
             public boolean isCellEditable(int row, int column) {
