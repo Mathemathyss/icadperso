@@ -47,7 +47,7 @@ public class UtilisateurDAO {
 
     public List<Utilisateur> getAll() {
         List<Utilisateur> utilisateurs = new ArrayList<Utilisateur>();
-        String query = "SELECT * FROM UTILISATEUR";
+        String query = "SELECT * FROM utilisateur";
         Statement statement;
         try {
             statement = this.connexion.createStatement();
