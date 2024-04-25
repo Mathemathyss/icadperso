@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane; 
 import org.mindrot.jbcrypt.BCrypt;
 
 public class UtilisateurDAO {
@@ -92,7 +92,7 @@ public class UtilisateurDAO {
             ps.setString(6, utilisateur.getADRESSE_UTILISATEUR());
             ps.setInt(7, utilisateur.getCP_UTILISATEUR());
             ps.setString(8, utilisateur.getFONCTION_UTILISATEUR());
-            ps.setString(9, utilisateur.getMDP_HASH_UTILISATEUR());
+            ps.setString(9, hashPassword(utilisateur.getMDP_HASH_UTILISATEUR()));
             ps.setInt(10, utilisateur.getID_UTILISATEUR());
             System.out.println("isPoolable : " + (ps.isPoolable() ? "OUAIIII"   : "NONNNNN"));
             int  req = ps.executeUpdate();
