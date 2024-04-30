@@ -8,9 +8,9 @@ import java.util.logging.Level;
 
 public class MySQLConnection {
     
-    private static final String url = "jdbc:mysql://localhost:3306/icad";
-    private static final String user = "root";
-    private static final String pass = "";
+    private static final String url = "jdbc:mysql://172.28.36.16:3306/icad";
+    private static final String user = "icad";
+    private static final String pass = "Btssio82300";
     
     private static Connection con = null;
     
